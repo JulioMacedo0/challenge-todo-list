@@ -7,7 +7,7 @@ export function Content() {
         <div>
           <S.LeftP>Tarefas criadas</S.LeftP> <S.Leftcounter>5</S.Leftcounter>
         </div>
-        <div className="rightDiv">
+        <div>
           <S.RightP>Concluídas</S.RightP>
           <div className="rightCounter">
             <span>2</span>

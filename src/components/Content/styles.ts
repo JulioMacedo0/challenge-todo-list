@@ -20,12 +20,6 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
 
-  .rightDiv {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
   .rightCounter {
     display: flex;
     justify-content: space-around;
