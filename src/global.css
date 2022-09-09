@@ -16,7 +16,7 @@
 
 :focus {
   outline: transparent;
-  box-shadow: 0 0 0 2px #9747ff;
+  box-shadow: 0 0 0 1px var(--publer-dark);
 }
 
 * {
