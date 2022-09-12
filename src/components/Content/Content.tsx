@@ -1,4 +1,5 @@
 import { Menssage } from "../Menssage/Menssage";
+import { Task } from "../Task/Task";
 import * as S from "./styles";
 export function Content() {
   return (
@@ -17,7 +18,8 @@ export function Content() {
         </div>
       </S.Header>
       <S.Content>
-        <Menssage />
+        <Task />
+        <Task />
       </S.Content>
     </S.Container>
   );
