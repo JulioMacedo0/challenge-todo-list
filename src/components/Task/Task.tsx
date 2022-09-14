@@ -3,16 +3,29 @@ import { Trash, Check } from "phosphor-react";
 
 interface taskProps {
   task: string;
+  isCheck?: boolean;
+  onChangeStatus: () => void;
+  deleteTask: () => void;
 }
-export function Task({ task }: taskProps) {
+export function Task({
+  task,
+  isCheck = false,
+  onChangeStatus,
+  deleteTask,
+}: taskProps) {
   return (
     <S.Container>
-      <S.CheckBox />
+      <S.CheckBox checked={isCheck} onClick={onChangeStatus} />
 
-      <S.TodoTitle>{task}</S.TodoTitle>
+      <S.TodoTitle isCheck={isCheck}>{task}</S.TodoTitle>
 
       <S.Trash>
-        <Trash size={18} alt="Trash icon" fontWeight={"bold"} />
+        <Trash
+          size={18}
+          alt="Trash icon"
+          fontWeight={"bold"}
+          onClick={deleteTask}
+        />
       </S.Trash>
     </S.Container>
   );

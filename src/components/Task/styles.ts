@@ -1,5 +1,7 @@
 import styled from "styled-components";
-
+interface styledProps {
+  isCheck: boolean;
+}
 export const Container = styled.div`
   display: flex;
   border-radius: 8px;
@@ -20,7 +22,6 @@ export const CheckBox = styled.input.attrs({ type: "checkbox" })`
   width: 1.2rem; //17.45px
   height: 1.1rem; //17.45px
   border-radius: 50%;
-
   border: 2px solid var(--blue-500);
   appearance: none;
   -webkit-appearance: none;
@@ -41,14 +42,18 @@ export const CheckBox = styled.input.attrs({ type: "checkbox" })`
     background: var(--blue-dark);
   }
 `;
+//var(--gray-100)
 
 export const TodoTitle = styled.p`
   margin-top: 1rem;
   width: 100%;
-  color: var(--gray-100);
+  color: ${(props: styledProps) =>
+    props.isCheck ? "var(--gray-300)" : "var(--gray-100)"};
   font-weight: 400;
   font-size: 0.875rem; //14px
   line-height: 1.225rem; //19.6px
+  text-decoration: ${(props: styledProps) =>
+    props.isCheck ? "line-through" : "none"};
 `;
 
 export const Trash = styled.div`
@@ -59,7 +64,7 @@ export const Trash = styled.div`
   color: var(--gray-300);
   margin-left: 0.75rem; //12px
   margin-right: 1rem; //16px
-
+  cursor: pointer;
   :hover {
     color: var(--danger);
   }
