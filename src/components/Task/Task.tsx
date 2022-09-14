@@ -1,14 +1,15 @@
 import * as S from "./styles";
 import { Trash, Check } from "phosphor-react";
-export function Task() {
+
+interface taskProps {
+  task: string;
+}
+export function Task({ task }: taskProps) {
   return (
     <S.Container>
       <S.CheckBox />
 
-      <S.TodoTitle>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer.
-      </S.TodoTitle>
+      <S.TodoTitle>{task}</S.TodoTitle>
 
       <S.Trash>
         <Trash size={18} alt="Trash icon" fontWeight={"bold"} />

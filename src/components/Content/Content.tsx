@@ -18,8 +18,8 @@ export function Content() {
         </div>
       </S.Header>
       <S.Content>
-        <Task />
-        <Task />
+        <Task task="Estudar Javascrit Estudar Javascrit Estudar Javascrit Estudar Javascrit Estudar Javascrit Estudar Javascrit" />
+        <Task task="Estudar React" />
       </S.Content>
     </S.Container>
   );
