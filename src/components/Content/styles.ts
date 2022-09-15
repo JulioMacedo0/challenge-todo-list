@@ -15,6 +15,9 @@ export const Container = styled.div`
     width: 20rem;
   }
 `;
+interface StyledHeaderProps {
+  taskLengh: number;
+}
 
 export const Header = styled.header`
   display: flex;
@@ -29,6 +32,8 @@ export const Header = styled.header`
     color: var(--gray-200);
     padding: 2px 8px;
     border-radius: 8px;
+    width: ${(props: StyledHeaderProps) =>
+      props.taskLengh > 0 ? "3.25rem" : "1.5625rem"}; //52px
   }
 
   div {
