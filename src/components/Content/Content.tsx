@@ -8,11 +8,11 @@ export function Content() {
   const [title, setTitle] = useState("");
   const [task, setTask] = useState([
     {
-      title: "Estuda JavarScript",
+      title: "Estudar JavarScript",
       isCheck: true,
     },
     {
-      title: "Estuda React",
+      title: "Estudar React",
       isCheck: false,
     },
   ]);
