@@ -48,6 +48,10 @@ export const Button = styled.button`
   :hover {
     background-color: var(--blue-500);
   }
+  :focus {
+    outline: transparent;
+    box-shadow: 0 0 0 1px var(--blue-dark);
+  }
 
   svg {
     margin-left: 0.5rem; //8px
