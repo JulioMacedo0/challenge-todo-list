@@ -15,7 +15,7 @@ export function Task({
 }: taskProps) {
   return (
     <S.Container>
-      <S.CheckBox checked={isCheck} onClick={onChangeStatus} />
+      <S.CheckBox checked={isCheck} onChange={onChangeStatus} />
 
       <S.TodoTitle isCheck={isCheck}>{task}</S.TodoTitle>
 
