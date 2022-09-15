@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 46rem; //736px
-  height: 28.1875rem; // 451px
+  min-height: 28.1875rem; // 451px
   margin: 0 auto;
   margin-top: 91px;
 
@@ -13,6 +13,10 @@ export const Container = styled.div`
 
   @media (max-width: 450px) {
     width: 20rem;
+  }
+
+  @media (max-width: 320px) {
+    width: 18rem;
   }
 `;
 interface StyledHeaderProps {
@@ -33,7 +37,7 @@ export const Header = styled.header`
     padding: 2px 8px;
     border-radius: 8px;
     width: ${(props: StyledHeaderProps) =>
-      props.taskLengh > 0 ? "3.25rem" : "1.5625rem"}; //52px
+      props.taskLengh > 0 ? "3.6rem" : "1.5625rem"}; //52px
   }
 
   div {

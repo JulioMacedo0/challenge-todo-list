@@ -13,6 +13,9 @@ export const Container = styled.form`
   @media (max-width: 450px) {
     width: 20rem;
   }
+  @media (max-width: 320px) {
+    width: 18rem;
+  }
   div {
     display: flex;
     justify-content: center;
