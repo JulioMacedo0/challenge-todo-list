@@ -1,9 +1,11 @@
+import { TagSimple } from "phosphor-react";
 import { useState } from "react";
+import { Input } from "../Input/Input";
 import { Menssage } from "../Menssage/Menssage";
 import { Task } from "../Task/Task";
 import * as S from "./styles";
 export function Content() {
-  const [title, setTile] = useState("");
+  const [title, setTitle] = useState("");
   const [task, setTask] = useState([
     {
       title: "Estuda JavarScript",
@@ -22,6 +24,7 @@ export function Content() {
     } else {
       console.log("erro em adcionar");
     }
+    setTitle("");
   }
 
   function onChangeStatus(id: number) {
@@ -38,33 +41,61 @@ export function Content() {
     const newTasks = task.filter((task, index) => index != id);
     setTask(newTasks);
   }
+
+  function getTasksDoneLength() {
+    let i = 0;
+    task.forEach((task) => {
+      if (task.isCheck == true) {
+        i++;
+      }
+    });
+    return i;
+  }
+
+  function getTasksUndone() {
+    let i = 0;
+    task.forEach((task) => {
+      if (task.isCheck == false) {
+        i++;
+      }
+    });
+    return i;
+  }
+
   return (
     <S.Container>
-      <S.Header>
+      <Input title={title} setTitle={setTitle} addTask={addTask} />
+      <S.Header taskLengh={task.length}>
         <div>
-          <S.LeftP>Tarefas criadas</S.LeftP> <S.Leftcounter>5</S.Leftcounter>
+          <S.LeftP>Tarefas criadas</S.LeftP>{" "}
+          <S.Leftcounter>{task.length}</S.Leftcounter>
         </div>
         <div>
           <S.RightP>Concluídas</S.RightP>
           <div className="rightCounter">
-            <span>2</span>
-            <p>de</p>
-            <span>5</span>
+            <span>{getTasksDoneLength()}</span>
+
+            {task.length > 0 ? <p>de</p> : null}
+            {task.length > 0 ? <span>{getTasksUndone()}</span> : null}
           </div>
         </div>
       </S.Header>
       <S.Content>
-        {task.map((task, index) => {
-          return (
-            <Task
-              key={index}
-              onChangeStatus={() => onChangeStatus(index)}
-              isCheck={task.isCheck}
-              task={task.title}
-              deleteTask={() => deleteTask(index)}
-            />
-          );
-        }) ?? <Menssage />}
+        {task.length == 0 ? (
+          <Menssage />
+        ) : (
+          task.map((task, index) => {
+            return (
+              <Task
+                key={index}
+                onChangeStatus={() => onChangeStatus(index)}
+                isCheck={task.isCheck}
+                task={task.title}
+                deleteTask={() => deleteTask(index)}
+              />
+            );
+          })
+        )}
       </S.Content>
     </S.Container>
   );
