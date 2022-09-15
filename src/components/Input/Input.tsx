@@ -12,6 +12,11 @@ export function Input({ addTask, title, setTitle }: inputProps) {
     <S.Container onSubmit={(e) => e.preventDefault()}>
       <div>
         <S.Input
+          onKeyDown={(e) => {
+            if (e.code == "Enter" || e.code == "NumpadEnter") {
+              addTask(title);
+            }
+          }}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
