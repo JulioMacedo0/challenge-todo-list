@@ -1,11 +1,24 @@
 import * as S from "./styles";
 import { PlusCircle } from "phosphor-react";
-export function Input() {
+
+interface inputProps {
+  addTask: (arg0: string) => void;
+  setTitle: (arg0: string) => void;
+  title: string;
+}
+
+export function Input({ addTask, title, setTitle }: inputProps) {
   return (
-    <S.Container>
+    <S.Container onSubmit={(e) => e.preventDefault()}>
       <div>
-        <S.Input placeholder="Adicione uma nova tarefa" />
-        <S.Button>
+        <S.Input
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
+          value={title}
+          placeholder="Adicione uma nova tarefa"
+        />
+        <S.Button onClick={() => addTask(title)} type="button">
           Criar <PlusCircle size={16} weight="bold" />
         </S.Button>
       </div>
