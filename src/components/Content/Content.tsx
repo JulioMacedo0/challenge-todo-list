@@ -52,16 +52,6 @@ export function Content() {
     return i;
   }
 
-  function getTasksUndone() {
-    let i = 0;
-    task.forEach((task) => {
-      if (task.isCheck == false) {
-        i++;
-      }
-    });
-    return i;
-  }
-
   return (
     <S.Container>
       <Input title={title} setTitle={setTitle} addTask={addTask} />
@@ -76,7 +66,7 @@ export function Content() {
             <span>{getTasksDoneLength()}</span>
 
             {task.length > 0 ? <p>de</p> : null}
-            {task.length > 0 ? <span>{getTasksUndone()}</span> : null}
+            {task.length > 0 ? <span>{task.length}</span> : null}
           </div>
         </div>
       </S.Header>
