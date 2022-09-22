@@ -16,7 +16,7 @@ export function Content() {
       isCheck: false,
     },
   ]);
-
+ const haveTasks = task.length > 0;
   function addTask(title: string) {
     if (title.trim() != "") {
       const newTasks = [...task, { title: title, isCheck: false }];
@@ -60,8 +60,8 @@ export function Content() {
           <div className="rightCounter">
             <span>{getTasksDoneLength()}</span>
 
-            {task.length > 0 ? <p>de</p> : null}
-            {task.length > 0 ? <span>{task.length}</span> : null}
+            {haveTasks && <p>de</p> }
+            {haveTasks && <span>{task.length}</span>}
           </div>
         </div>
       </S.Header>
