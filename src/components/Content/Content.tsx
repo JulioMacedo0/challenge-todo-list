@@ -43,13 +43,8 @@ export function Content() {
   }
 
   function getTasksDoneLength() {
-    let i = 0;
-    task.forEach((task) => {
-      if (task.isCheck == true) {
-        i++;
-      }
-    });
-    return i;
+    const tasksIsDoneAmount = task.filter( (task) => task.isCheck == true)
+    return tasksIsDoneAmount.length;
   }
 
   return (
