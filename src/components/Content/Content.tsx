@@ -1,7 +1,7 @@
 import { TagSimple } from "phosphor-react";
 import { useState } from "react";
 import { Input } from "../Input/Input";
-import { Menssage } from "../Menssage/Menssage";
+import { Menssage } from "../Message/Menssage";
 import { Task } from "../Task/Task";
 import * as S from "./styles";
 export function Content() {
