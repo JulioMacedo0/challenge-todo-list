@@ -6,7 +6,7 @@ import { Task } from "../Task/Task";
 import * as S from "./styles";
 export function Content() {
   const [title, setTitle] = useState("");
-  const [task, setTask] = useState([
+  const [tasks, setTasks] = useState([
     {
       title: "Estudar JavarScript",
       isCheck: true,
@@ -16,11 +16,11 @@ export function Content() {
       isCheck: false,
     },
   ]);
- const haveTasks = task.length > 0;
+ const haveTasks = tasks.length > 0;
   function addTask(title: string) {
     if (title.trim() != "") {
-      const newTasks = [...task, { title: title, isCheck: false }];
-      setTask(newTasks);
+      const newTasks = [...tasks, { title: title, isCheck: false }];
+      setTasks(newTasks);
     } else {
       console.log("erro em adcionar");
     }
@@ -28,32 +28,32 @@ export function Content() {
   }
 
   function onChangeStatus(id: number) {
-    const newTasks = task.map((task, index) => {
+    const newTasks = tasks.map((task, index) => {
       if (index == id) {
         return { ...task, isCheck: !task.isCheck };
       }
       return task;
     });
-    setTask(newTasks);
+    setTasks(newTasks);
   }
 
   function deleteTask(id: number) {
-    const newTasks = task.filter((task, index) => index != id);
-    setTask(newTasks);
+    const newTasks = tasks.filter((task, index) => index != id);
+    setTasks(newTasks);
   }
 
   function getTasksDoneLength() {
-    const tasksIsDoneAmount = task.filter( (task) => task.isCheck == true)
+    const tasksIsDoneAmount = tasks.filter( (task) => task.isCheck == true)
     return tasksIsDoneAmount.length;
   }
 
   return (
     <S.Container>
       <Input title={title} setTitle={setTitle} addTask={addTask} />
-      <S.Header taskLengh={task.length}>
+      <S.Header taskLengh={tasks.length}>
         <div>
           <S.LeftP>Tarefas criadas</S.LeftP>{" "}
-          <S.Leftcounter>{task.length}</S.Leftcounter>
+          <S.Leftcounter>{tasks.length}</S.Leftcounter>
         </div>
         <div>
           <S.RightP>Concluídas</S.RightP>
@@ -61,15 +61,15 @@ export function Content() {
             <span>{getTasksDoneLength()}</span>
 
             {haveTasks && <p>de</p> }
-            {haveTasks && <span>{task.length}</span>}
+            {haveTasks && <span>{tasks.length}</span>}
           </div>
         </div>
       </S.Header>
       <S.Content>
-        {task.length == 0 ? (
+        {tasks.length == 0 ? (
           <Menssage />
         ) : (
-          task.map((task, index) => {
+          tasks.map((task, index) => {
             return (
               <Task
                 key={index}
